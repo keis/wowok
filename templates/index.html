@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    <article>
+        {{ page.content }}
+    </article>
+    <section class="script index">
+        <h2>Script</h2>
+        {% for subpage in site.tags['script'] | sort(attribute='index') %}
+            <article class="script" data-slug="{{subpage.slug}}">
+                <h3>{{subpage.index}} - <a href="{{subpage.url}}">{{subpage.title}}</a></h3>
+                {{subpage.summary}}
+            </article>
+        {% endfor %}
+    </section>
+    <section class="location index">
+        <h2>Locations</h2>
+        {% for subpage in site.tags['location'] %}
+            <article class="location" data-slug="{{subpage.slug}}">
+                <h3>{{subpage.index}} - <a href="{{subpage.url}}">{{subpage.title}}</a></h3>
+                {{subpage.summary}}
+            </article>
+        {% endfor %}
+    </section>
+    <section class="characters index">
+        <h2>Characters</h2>
+        {% for subpage in site.tags['character'] %}
+            <article class="character" data-slug="{{subpage.slug}}">
+                <h3>{{subpage.index}} - <a href="{{subpage.url}}">{{subpage.title}}</a></h3>
+                {{subpage.summary}}
+            </article>
+        {% endfor %}
+    </section>
+    <section class="items index">
+        <h2>Items</h2>
+        {% for subpage in site.tags['item'] %}
+            <article class="item" data-slug="{{subpage.slug}}">
+                <h3>{{subpage.index}} - <a href="{{subpage.url}}">{{subpage.title}}</a></h3>
+                {{subpage.summary}}
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}

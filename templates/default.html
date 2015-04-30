@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+    <section class="related">
+    {% if page.location %}
+        {% for l in page.location %}
+            <article class="location">
+            <a href="{{ site.slugs[l].url }}">
+                {{ site.slugs[l].title }}
+            </a>
+            {{ site.slugs[l].content }}
+            </article>
+        {% endfor %}
+    {% endif %}
+    {% if page.character %}
+        {% for c in page.character %}
+            <article class="character">
+            <a href="{{ site.slugs[c].url }}">
+                {{ site.slugs[c].title }}
+            </a>
+            {{ site.slugs[c].content }}
+            </article>
+        {% endfor %}
+    {% endif %}
+    {% if page.item %}
+        {% for i in page.item %}
+            <article class="item">
+            <a href="{{ site.slugs[i].url }}">
+                {{ site.slugs[i].title }}
+            </a>
+            {{ site.slugs[i].content }}
+            </article>
+        {% endfor %}
+    {% endif %}
+    </section>
+    <article>
+        {{ page.content }}
+    </article>
+{% endblock %}
